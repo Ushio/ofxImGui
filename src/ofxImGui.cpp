@@ -113,7 +113,7 @@ void ofxImGui::begin()
     float currentTime = ofGetElapsedTimef();
     if(lastTime > 0.f)
     {
-        io.DeltaTime = currentTime - lastTime;
+        io.DeltaTime = std::max(currentTime - lastTime, 1.0f / 240.0f);
     }
     else
     {
